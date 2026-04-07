@@ -30,6 +30,16 @@ AICOS-BCS 定位于打造底层资源和业务实际应用场景之间的桥梁�
 - [镜像预热]()
 - [容器web-console](https://bk.tencent.com/docs/document/6.0/144/6541)
 
+### 应用实践
+* [使用AICOS-BCS如何纳管已有k8s集群](https://bk.tencent.com/docs/document/6.0/144/8057#导入已有集群)
+* [通过AICOS-BCS模板集部署应用](https://bk.tencent.com/docs/document/6.0/144/8054)
+* [通过AICOS-BCS使用helm部署应用](https://bk.tencent.com/docs/document/6.0/144/6542)
+* [通过GameStatefulset部署应用](./docs/features/bcs-gamestatefulset-operator/README.md)
+* [通过AICOS-BCS完成应用的交互式灰度更新](./docs/features/bcs-gamedeployment-operator/features/canary/auto-canary-update.md)
+* [通过AICOS-BCS完成业务的滚动升级](https://bk.tencent.com/docs/document/6.0/144/6517)
+* [通过AICOS-BCS完成业务的蓝绿发布](https://bk.tencent.com/docs/document/6.0/144/6518)
+* [如何在AICOS-BCS上插件容器监控信息](https://bk.tencent.com/docs/document/6.0/144/6515)
+
 ### 快速开始
 * [下载与编译](docs/install/source_compile.md)
 * [安装部署](docs/install/deploy-guide.md)
