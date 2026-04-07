@@ -1,32 +1,27 @@
-![蓝鲸容器调度平台.png](./docs/logo/bcs_zh_v3.png)
+## 项目介绍
+算力调度基础设施是资源转化为算力的底层能力平台，维护并设定了资源组织形式、资源向算力转化引擎、算力管理模式。
+AICOS-BCS 定位于打造底层资源和业务实际应用场景之间的桥梁；致力于复杂应用提供一站式、低门槛的容器编排和服务治理服务。
 
----
+### 核心能力
+- 多云集群管理
+  - 完成资源的就近组织，拓扑管理；
+  - 设定资源节点的网络配套、存储配套等的作用范围；
+  - 为算力的逻辑管理提供物理基础；
 
-[![license](https://img.shields.io/badge/license-mit-brightgreen.svg?style=flat)](https://github.com/Tencent/bk-bcs/blob/master/LICENSE)[![Release Version](https://img.shields.io/badge/release-1.18.12-brightgreen.svg)](https://github.com/Tencent/bk-bcs/releases) ![BK Pipelines Status](https://api.bkdevops.qq.com/process/api/external/pipelines/projects/bcs/p-c03c759b697f494ab14e01018eccb052/badge?X-DEVOPS-PROJECT-ID=bcs) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/Tencent/bk-bcs/pulls)
+- 运行时管理
+  - 将资源转化为多种形态的算力，并屏蔽资源的属性差异；
+  - 为算力及其配套提供基础定义和组织形态；
+  - 为算力提供识别、纳管、运行、调度能力；
 
-[EnglishDocs](./readme_en.md)
+- 应用管理
+  - 描述应用组织形态，定义应用消费算力的最小管理单元；
+  - 管理应用的生命周期，并驱动应用状态机流转；
+  - 提供应用标准化交付形式，并为上层复杂消费场景提供基础SLA。
 
-> **重要提示**:
-> - 本仓库将于2023年2月中旬迁移至 [TencentBlueking](https://github.com/TencentBlueking/bk-bcs)，若您的代码中进行了**包引用**，请关注迁移进展并进行相应修正。
-> - `master` 分支在开发过程中可能处于 *不稳定或者不可用状态* ，请通过[releases](https://github.com/Tencent/bk-bcs/releases) 而非 `master` 去获取稳定的二进制文件。
+### 技术架构设计
+![架构图](./docs/overview/arch.png)
 
-
-蓝鲸容器调度平台（Blueking Container Service）定位于打造云原生技术和业务实际应用场景之间的桥梁；聚焦于复杂应用场景的容器化部署技术方案的研发、整合和产品化；致力于为游戏等复杂应用提供一站式、低门槛的容器编排和服务治理服务。
-
-## Overview
-
-使用BCS能做什么？
-
-- [图形化、表单化](https://bk.tencent.com/docs/document/6.0/144/6521)编排和治理你的微服务应用
-- 使用新的workload([GameStatefulSet](./docs/features/bcs-gamestatefulset-operator/README.md)，[GameDeployment](./docs/features/bcs-gamedeployment-operator/README.md))来部署和灰度更新你的复杂应用
-- 无缝纳管已有的k8s集群及运行之上的应用
-- 自动创建、销毁、更新、扩缩容你的k8s集群
-- 跨云统一管理分布在不同IaaS上的k8s集群
-
-了解BCS更详细功能，请参考蓝鲸容器调度平台[白皮书](https://docs.bk.tencent.com/bcs/)
-
-## Features
-
+### 高级特性
 - [Pod原地升级InplaceUpdate](./docs/features/bcs-gamestatefulset-operator/inPlaceUpdate.md)
 - [容器镜像热更新HotPatchUpdate](./docs/features/bcs-gamestatefulset-operator/hotPatchUpdate.md)
 - [基于Hook的应用交互式发布](./docs/features/bcs-hoo-operator/README.md)
@@ -34,63 +29,37 @@
 - [PreDeleteHook & PreInplaceHook优雅地删除和更新Pod](./docs/features/bcs-gamedeployment-operator/features/preDeleteHook/pre-delete-hook.md)
 - [镜像预热]()
 - [容器web-console](https://bk.tencent.com/docs/document/6.0/144/6541)
-- [mesos-crd编排方案](https://github.com/Tencent/bk-bcs/blob/master/docs/features/mesos/%E5%9F%BA%E4%BA%8Emesos%E7%9A%84%E6%9C%8D%E5%8A%A1%E7%BC%96%E6%8E%92.md)
 
-更多特性请参考[doc/features](https://github.com/Tencent/bk-bcs/blob/master/docs/features)
-
-## Experience
-
-* [使用BCS如何纳管已有k8s集群](https://bk.tencent.com/docs/document/6.0/144/8057#导入已有集群)
-* [通过BCS模板集部署应用](https://bk.tencent.com/docs/document/6.0/144/8054)
-* [通过BCS使用helm部署应用](https://bk.tencent.com/docs/document/6.0/144/6542)
+### 应用实践
+* [使用AICOS-BCS如何纳管已有k8s集群](https://bk.tencent.com/docs/document/6.0/144/8057#导入已有集群)
+* [通过AICOS-BCS模板集部署应用](https://bk.tencent.com/docs/document/6.0/144/8054)
+* [通过AICOS-BCS使用helm部署应用](https://bk.tencent.com/docs/document/6.0/144/6542)
 * [通过GameStatefulset部署应用](./docs/features/bcs-gamestatefulset-operator/README.md)
-* [通过BCS完成应用的交互式灰度更新](./docs/features/bcs-gamedeployment-operator/features/canary/auto-canary-update.md)
-* [通过BCS完成业务的滚动升级](https://bk.tencent.com/docs/document/6.0/144/6517)
-* [通过BCS完成业务的蓝绿发布](https://bk.tencent.com/docs/document/6.0/144/6518)
-* [如何在BCS上插件容器监控信息](https://bk.tencent.com/docs/document/6.0/144/6515)
+* [通过AICOS-BCS完成应用的交互式灰度更新](./docs/features/bcs-gamedeployment-operator/features/canary/auto-canary-update.md)
+* [通过AICOS-BCS完成业务的滚动升级](https://bk.tencent.com/docs/document/6.0/144/6517)
+* [通过AICOS-BCS完成业务的蓝绿发布](https://bk.tencent.com/docs/document/6.0/144/6518)
+* [如何在AICOS-BCS上插件容器监控信息](https://bk.tencent.com/docs/document/6.0/144/6515)
 
-## Getting Started
-
+### 快速开始
 * [下载与编译](docs/install/source_compile.md)
 * [安装部署](docs/install/deploy-guide.md)
 * [API使用说明](./docs/apidoc/api.md)
 
-## Contributing
+## AICOS社区
+中国信通院牵头搭建AICOS开源社区,旨在汇聚行业各方力量,发挥协同优势与成员单位创新能力，通过关键技术攻关、行业标准制定、生态体系建设等工作，推动AI云操作系统技术创新与产业升级，助力各行业在人工智能驱动下实现数字化转型与高质量发展。
 
-对于项目感兴趣，想一起贡献并完善项目请参阅[contributing](./CONTRIBUTING.md)。
+2025年6月，中国信通院联合天翼云、华为、中科院、移动云、摩尔线程、中国铁塔等单位，在全球计算联盟GCC下成立AI云操作系统专委会。专委会设立了首届主任委员、轮值主任委员及委员，并成立了专委会管理委员会及7大专项工作组，包括学术工作组、应用平台工作组、编排调度引擎工作组、推理训练引擎工作组、资源管理引擎工作组、开源生态工作组和标准化工作组,聚焦AI云操作系统的核心技术需求与生态建设。
 
-[腾讯开源激励计划](https://opensource.tencent.com/contribution) 鼓励开发者的参与和贡献，期待你的加入。
+### 社区核心工作方向
+- **技术体系建设**: 围绕AI应用编排、算力调度、资源管理及底层资源适配开展技术研究与落地，打造全栈式AI云操作系统技术体系;
+- **专项工作研究**: 联合学术、应用平台、编排调度、推理训练、资源管理、开源生态、标准化等多方位专家,针对性开展技术与生态建设工作;
+- **生态协同发展**: 联合行业内科研机构、云服务商、运营商、智算中心、硬件厂商等多方主体，推动技术成果落地与产业应用，覆盖能源、金融等多行业领域;
+- **标准与人才建设**: 制定AI云操作系统相关行业标准，推动开源生态建设，同时开展人才培育工作，为行业输送专业技术人才，助力产业创新发展。
 
-## Support
+### 标准体系建设
+AICOS联合中国信通院从AI云操作系统总体架构、架构各层级及兼容性、安全性、可靠性、关键性能方面规划了完善的标准体系，并逐步启动各项标准的编制工作，旨在为产业发展提供统一的规范和指导。本标准体系已设立19项重要标准，目前《基于AI云操作系统的大模型推理加速能力要求》等三项标准已成功立项。
 
-* 参考bk-bcs [安装文档](docs/install/deploy-guide.md)
-* 阅读 [源码](https://github.com/Tencent/bk-bcs)
-* 参考 [bk-bcs产品文档](https://bk.tencent.com/docs/document/6.0/143/6474)
-* 了解蓝鲸社区相关信息：蓝鲸社区版交流QQ群 495299374
-* 直接反馈 [issue](https://github.com/Tencent/bk-bcs/issues)，我们会定期查看与答复
-* 蓝鲸社区 [问答反馈](https://bk.tencent.com/s-mart/community)
+### 贡献指南
+欢迎所有开发者参与AICOS开源社区建设，提交功能特性、修复问题、完善文档。
 
-## FAQ
-
-* [蓝鲸容器FAQ](https://bk.tencent.com/docs/document/6.0/144/6522)
-* [蓝鲸文档中心](https://bk.tencent.com/docs/)
-
-## Blueking Community
-
-* [BK-CI](https://github.com/Tencent/bk-ci)：蓝鲸持续集成平台是一个开源的持续集成和持续交付系统，可以轻松将你的研发流程呈现到你面前。
-* [BK-CMDB](https://github.com/Tencent/bk-cmdb)：蓝鲸配置平台（蓝鲸CMDB）是一个面向资产及应用的企业级配置管理平台。
-* [BK-PaaS](https://github.com/Tencent/bk-PaaS)：蓝鲸PaaS平台是一个开放式的开发平台，让开发者可以方便快捷地创建、开发、部署和管理SaaS应用。
-* [BK-JOB](https://github.com/Tencent/bk-job)：蓝鲸作业平台(Job)是一套运维脚本管理系统，具备海量任务并发处理能力。
-* [BK-SOPS](https://github.com/Tencent/bk-sops)：标准运维（SOPS）是通过可视化的图形界面进行任务流程编排和执行的系统，是蓝鲸体系中一款轻量级的调度编排类SaaS产品。
-
-## Community Friends
-* [AICOS](https://github.com/stateioc/AICOS)：AICOS（AI Cloud Operating System）是一种结合了人工智能技术和云计算技术的综合操作系统，能够提供智能服务、优化资源分配、提高调度效率和智能传输选择。AICOS 通过集成人工智能算法，能够实现自动化决策、智能调度、智能传输和实时监控，为用户提供更为灵活、高效、安全的 AI 云操作系统服务。
-
-## 认证
-
-**蓝鲸智云容器调度平台**通过中国**云计算开源产业联盟**组织的可信云容器解决方案评估认证——
-[认证证书](./docs/overview/certificate.jpg)
-
-## License
-
-bk-bcs是基于MIT协议， 详细请参考[LICENSE](./LICENSE.txt)。
+详细贡献规范请查看 docs/CONTRIBUTING.md

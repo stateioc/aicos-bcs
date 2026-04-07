@@ -140,3 +140,6 @@ scripts/Tongsuo-8.3.2/
 pre-*-bkcodeai
 git-sync.sh
 .ftp/mcp.json
+
+### PreCI ###
+.codecc
