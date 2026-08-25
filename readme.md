@@ -22,6 +22,7 @@ AICOS-BCS 定位于打造底层资源和业务实际应用场景之间的桥梁�
 ![架构图](./docs/overview/arch.png)
 
 ### 高级特性
+- [多卡适配]()
 - [Pod原地升级InplaceUpdate](./docs/features/bcs-gamestatefulset-operator/inPlaceUpdate.md)
 - [容器镜像热更新HotPatchUpdate](./docs/features/bcs-gamestatefulset-operator/hotPatchUpdate.md)
 - [基于Hook的应用交互式发布](./docs/features/bcs-hoo-operator/README.md)
